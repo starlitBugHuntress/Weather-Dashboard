@@ -1,25 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <title>Weather Dashboard</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Witch's Weather Glass</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
 </head>
 <body>
-    <header><h1>Weather Dashboard</h1></header>
-    <div id="city-search">
-        <h2>Search for a city</h2>
-        <form>
-        <input type="text" id="user-input">
-        <button id="search">Search</button>
-        </form>
+
+  <!-- STAR FIELD -->
+  <canvas id="starfield"></canvas>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <div class="moon-glyph">☽</div>
+      <div class="header-text">
+        <h1>The Witch's Weather Glass</h1>
+        <p class="header-sub">Commune with the skies</p>
+      </div>
+      <div class="moon-glyph">☾</div>
     </div>
+  </header>
+
+  <!-- SEARCH BAR -->
+  <div class="search-wrapper">
+    <form id="search-form">
+      <div class="search-inner">
+        <span class="search-glyph">✦</span>
+        <input type="text" id="user-input" placeholder="Enter a city name..." autocomplete="off" />
+        <button type="submit" id="search-btn">Divine the Weather</button>
+        <button type="button" id="geo-btn" title="Use my location">⊕ Use My Location</button>
+      </div>
+    </form>
     <div id="search-history"></div>
-    <div id="city-current"></div>
-    <div id="five-day-forecast"></div>
-    <script src="script.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+  </div>
+
+  <!-- MAIN DASHBOARD GRID -->
+  <main id="dashboard" class="hidden">
+
+    <!-- CURRENT WEATHER -->
+    <section id="current-weather" class="panel panel-current">
+      <div class="panel-label">Current Conditions</div>
+      <div id="current-inner"></div>
+    </section>
+
+    <!-- MOON PHASE -->
+    <section id="moon-panel" class="panel panel-moon">
+      <div class="panel-label">Lunar Oracle</div>
+      <div id="moon-inner">
+        <div class="moon-display" id="moon-symbol"></div>
+        <div class="moon-name" id="moon-phase-name"></div>
+        <div class="moon-flavor" id="moon-flavor"></div>
+      </div>
+    </section>
+
+    <!-- CONSTELLATIONS -->
+    <section id="constellation-panel" class="panel panel-stars">
+      <div class="panel-label">Visible Constellations</div>
+      <div id="constellation-inner"></div>
+    </section>
+
+    <!-- 5-DAY FORECAST -->
+    <section id="forecast-panel" class="panel panel-forecast">
+      <div class="panel-label">The Days Ahead</div>
+      <div id="forecast-inner"></div>
+    </section>
+
+  </main>
+
+  <div id="empty-state">
+    <div class="empty-glyph">☽ ✦ ☾</div>
+    <p>Enter a city above to read the skies</p>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
